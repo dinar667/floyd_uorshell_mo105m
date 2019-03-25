@@ -94,5 +94,5 @@ for i in V:
         continue
 
     lower_path = get_lower_path(weights, new_f, start, i)
-    p = ' -> '.join(map(lambda s: str(int(s) + 1), lower_path))
+    p = ' -> '.join(map(lambda s: f"{s + 1}", lower_path))
     print(f"Из {start + 1} в {i + 1} = {new_w[start][i]} ({p})")
