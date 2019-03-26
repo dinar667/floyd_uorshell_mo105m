@@ -38,18 +38,23 @@ def floyd(w, f):
     :return: матрицу
     """
     for j in V:
+        print(f"Промежуточная вершина: {j + 1}")
+
         for u in V:
             for v in V:
                 distance = w[u][j] + w[j][v]
                 if distance < w[u][v]:
-                    print(f"Путь из вершины {u + 1} в {v + 1} через {j + 1} короче = {distance} (vs {w[u][v]})")
+                    print(
+                        f"Путь из вершины {u + 1} в {v + 1} "
+                        f"через промежуточную вершину {j + 1} "
+                        f"короче = {distance} (старое значение = {w[u][v]})"
+                    )
                     w[u][v] = distance
                     w[v][u] = distance
 
                     f[u][v] = f[u][j]
                     f[v][u] = f[v][j]  # !!!
 
-        print(f"Удаляем вершину {j + 1}")
         print("Матрицы: ")
         print_matrix(w)
         print_matrix(f)
